@@ -13,22 +13,18 @@ public class Main {
 
     
         int from = d1;
-        for(int i = 0; i < m1; i++) {
+        for(int i = 1; i < m1; i++) {
             from += num_of_days[i];
         }
         int to = d2; 
-        for(int i = 0; i < m2; i++) {
+        for(int i = 1; i < m2; i++) {
             to += num_of_days[i];
         }
 
         int daySum = to - from;
-        int left = daySum % 7;
+        // 음수값 보정 필요 == 음수일경우 -1이나 6다음번 인덱스랑 같음
+        int left = (daySum + 7 ) % 7;
+        System.out.println(strDay[left]);
 
-        if (left > 0) {
-            System.out.println(strDay[left]);
-        } else {
-            System.out.println(strDay[strDay.length + left]);
-        }
-        
     }
 }
