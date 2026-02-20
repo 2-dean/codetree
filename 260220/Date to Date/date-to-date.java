@@ -11,15 +11,15 @@ public class Main {
         int[] num_of_days = new int[]{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
         int fromday = d1;
-        for (int i = 1; i <= m1 ; i++) {
+        for (int i = 1; i < m1 ; i++) {
             fromday += num_of_days[i]; 
         }
 
         int today = d2;
-        for (int i = 1; i <= m2 ; i++) {
+        for (int i = 1; i < m2 ; i++) {
             today += num_of_days[i]; 
         }
-
-        System.out.print(today - fromday);
+        //시작일 포함
+        System.out.print(today - fromday + 1); 
     }
 }
