@@ -26,9 +26,9 @@ public class Main {
         // A요일이 몇번 등장하는지 ?
         int diff = daySum(m2, d2) - daySum(m1, d1);
         int count = diff / 7;
-        int day = diff % 7;
+        int remain = diff % 7;
 
-        for (int i = day ; i < strDay.length; i++) {
+        for (int i = 0 ; i < remain; i++) {
             if (strDay[i].equals(A)) {
                 count++;
             }
