@@ -22,9 +22,9 @@ public class Main {
         }
 
         int daySum = to - from;
-        // 음수값 보정 필요 == 음수일경우 -1이나 6다음번 인덱스랑 같음
-        int left = (daySum + 7 ) % 7;
-        System.out.println(strDay[left]);
+        //  요일 계산 (음수가 나올 경우를 대비해 7을 더하고 나머지 연산)
+        int index = (daySum % 7 + 7) % 7;
+        System.out.println(strDay[index]);
 
     }
 }
