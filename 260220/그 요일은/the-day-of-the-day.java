@@ -28,7 +28,7 @@ public class Main {
         int count = diff / 7;
         int remain = diff % 7;
 
-        for (int i = 0 ; i < remain; i++) {
+        for (int i = 0 ; i <= remain; i++) {
             if (strDay[i].equals(A)) {
                 count++;
             }
