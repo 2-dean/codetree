@@ -8,12 +8,9 @@ public class Main {
         int[] line = new int [201];
 
         for (int i = 0; i < n; i++) {
-            x1[i] = sc.nextInt();
-            x2[i] = sc.nextInt();
-            if (x1[i] < 0 || x2[i] < 0){
-                x1[i] += 100;
-                x2[i] += 100;
-            }
+            x1[i] = sc.nextInt() + 100;
+            x2[i] = sc.nextInt() + 100;
+
             for (int j = x1[i]; j < x2[i]; j++) {
                 line[j]++;
             } 
