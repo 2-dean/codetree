@@ -11,8 +11,8 @@ public class Main {
             x1[i] = sc.nextInt();
             x2[i] = sc.nextInt();
             if (x1[i] < 0 || x2[i] < 0){
-                x1 *= -1;
-                x2 *= -1;
+                x1[i] *=-1;
+                x2[i] *= -1;
             }
             line[x1[i]]++;
             line[x2[i]-1]++;
