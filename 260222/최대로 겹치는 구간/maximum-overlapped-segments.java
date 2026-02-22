@@ -5,19 +5,19 @@ public class Main {
         int n = sc.nextInt();
         int[] x1 = new int[n];
         int[] x2 = new int[n];
-        int[] line = new int [202];
+        int[] line = new int [201];
 
         for (int i = 0; i < n; i++) {
             x1[i] = sc.nextInt();
             x2[i] = sc.nextInt();
-            if (x1[i] < 0){
-                x1[i] *=-1;
+            if (x1[i] < 0 || x2[i] < 0){
+                x1[i] += 100;
+                x2[i] += 100;
             }
-            if (x2[i] < 0){
-                x2[i] *= -1;
-            }
-            line[x1[i]]++;
-            line[x2[i]-1]++;
+            for (int j = x1[i]; j < x2[i]; j++) {
+                line[j]++;
+            } 
+        
         }
         // Please write your code here.
         // 겹치는 구간~  뒤는 -1 해줌
