@@ -2,23 +2,23 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] line = new int [22];
+        int[] line = new int [2000];
         int N = sc.nextInt();
-        int idx = 9;
+        int cur = 1000; // 시작위치
         for (int i = 0; i < N; i++) {
             int x = sc.nextInt();
             char dir = sc.next().charAt(0);
             // Please write your code here.
-            x += 10; // 10 더해스 음수 없게
-            if (dir == 'L') {
-                for (int j = x-1; j >= idx; j--) {
+            if (dir == 'L') { // 왼쪽으로 이동 현재-거리  부터 현재위치까지
+                for (int j = cur - 1; j >= cur - x; j--) {
                     line[j]++;
                 } 
-            } else {
-                for (int k = idx; k < x; k++) {
+                cur -= x; // 현재위치 갱신
+            } else { // 오른쪽 이동 : > 현재 ~ 거리까지
+                for (int k = cur; k < cur + x; k++) {
                     line[k]++;
-                    idx = k;
                 } 
+                cur += x; // 현재위치 갱신
             }
         }
         int count = 0;
