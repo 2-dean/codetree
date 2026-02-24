@@ -38,7 +38,6 @@ public class Main {
         for (int i = 0; i < 201; i++) {
             for (int j = 0; j < 201; j++) {
                 if (paper[i][j] == 1) {
-                    found = true; // 이걸 꼭 해줘야 0 출력이 안 돼요!
                     if (i < minX) minX = i;
                     if (i > maxX) maxX = i;
                     if (j < minY) minY = j;
@@ -47,15 +46,12 @@ public class Main {
             }
         }
 
-        if (!found) {
-            System.out.print(0);
-        } else {
+  
             int width = maxX - minX +1; //칸 
             int height = maxY - minY + 1;
             System.out.print(width * height);
 
-        }
-
+  
         
     }
 }
