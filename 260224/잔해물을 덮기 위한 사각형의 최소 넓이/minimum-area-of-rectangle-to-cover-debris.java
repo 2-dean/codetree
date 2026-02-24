@@ -29,9 +29,9 @@ public class Main {
         }
 
         // 가장 왼쪽/ 가장오른쪽 끝점 찾기
-        int minX = 201;
+        int minX = 2001;
         int maxX = 0;
-        int minY = 201;
+        int minY = 2001;
         int maxY = 0;
         boolean found = false;
 
@@ -54,6 +54,5 @@ public class Main {
             int height = maxY - minY + 1;
             System.out.print(width * height);
         }
-        
     }
 }
