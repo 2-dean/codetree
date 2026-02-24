@@ -38,7 +38,7 @@ public class Main {
         for (int i = 0; i < 2001; i++) {
             for (int j = 0; j < 2001; j++) {
                 if (paper[i][j] == 1) {
-                    found = true;
+                 
                     if (i < minX) minX = i;
                     if (i > maxX) maxX = i;
                     if (j < minY) minY = j;
@@ -46,13 +46,9 @@ public class Main {
                 }
             }
         }
-
-        if (!found) {
-            System.out.print(0);
-        } else {
-            int width = maxX - minX + 1;
+         int width = maxX - minX + 1;
             int height = maxY - minY + 1;
             System.out.print(width * height);
-        }
+        
     }
 }
