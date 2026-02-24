@@ -5,15 +5,15 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         int[][] paper = new int [2001][2001];
-        int rect1_x1 = sc.nextInt()+100;
-        int rect1_y1 = sc.nextInt()+100;
-        int rect1_x2 = sc.nextInt()+100;
-        int rect1_y2 = sc.nextInt()+100;
+        int rect1_x1 = sc.nextInt()+1000;
+        int rect1_y1 = sc.nextInt()+1000;
+        int rect1_x2 = sc.nextInt()+1000;
+        int rect1_y2 = sc.nextInt()+1000;
 
-        int rect2_x1 = sc.nextInt()+100;
-        int rect2_y1 = sc.nextInt()+100;
-        int rect2_x2 = sc.nextInt()+100;
-        int rect2_y2 = sc.nextInt()+100;
+        int rect2_x1 = sc.nextInt()+1000;
+        int rect2_y1 = sc.nextInt()+1000;
+        int rect2_x2 = sc.nextInt()+1000;
+        int rect2_y2 = sc.nextInt()+1000;
         // Please write your code here.
 
         for (int i = rect1_x1; i < rect1_x2; i ++ ) {
