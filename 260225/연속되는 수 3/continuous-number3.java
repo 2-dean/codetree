@@ -10,11 +10,13 @@ public class Main {
         int cur = 0 ;
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
-            if (i == 0 || arr[i] < 0 != arr[i-1] < 0) {  // 0 이 음수일때
+            if (i == 0 || arr[i] < 0 != arr[i-1] < 0) {  // 음수양수 다를때 
                 cur = 1;
-            } 
-            cur++;
-            
+            } else {
+                cur++;
+            }
+           
+
             max = Math.max(max, cur);
         }
         // Please write your code here.
