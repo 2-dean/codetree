@@ -11,9 +11,9 @@ public class Main {
         }
         // 
         int max = 0;
-        int cnt = 1 ; // 현재 연속길이
+        int cnt = 0 ; // 현재 연속길이
         for (int i = 0; i < n; i++) {
-            if (i > 1 &&arr[i] == arr[i-1]) {
+            if (i == 0  || arr[i] == arr[i-1]) {
                 cnt ++;
             } else {   // 다른 묶음으로 넘어갔으면?
                 cnt = 1; // 초기화
