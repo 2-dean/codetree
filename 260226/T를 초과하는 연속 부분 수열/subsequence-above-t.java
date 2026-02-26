@@ -12,19 +12,15 @@ public class Main {
         int count = 0;
         int max = 0;
         for (int i = 0; i < n; i++) {
-            if (arr[i] >= t) {
-                if (i==0 || arr[i] > arr[i-1]) {
-                    count++;
-            
-                } else {
-                    count = 1;
-                }
+           if (arr[i] > t) {
+                count++;
+             
             } else {
                 count = 0;
             }
-        
-            max = Math.max(max, count);
-        } 
+             max = Math.max(max, count);
+    }
+
         System.out.print(max);
     }
 } 
