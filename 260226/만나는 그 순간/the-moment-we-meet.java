@@ -28,9 +28,10 @@ public class Main {
         }
         //b 의 이동
         int curB = 1;
-        for (int i = 0; i < n ; i ++ ){
+        for (int i = 0; i < m ; i ++ ){
             char d = sc.next().charAt(0); // 방향
             int t = sc.nextInt(); // 이동시간
+            
             while (t-- > 0) {
                 if (d == 'R') { // 우측으로 이동
                     timeB[curB] = timeB[curB - 1] + 1;
@@ -41,10 +42,10 @@ public class Main {
             }
         }
         int result = -1;
-        for (int i = 1 ; i < c; i++) {
+        for (int i = 1 ; i < curA; i++) {
             if (timeA[i] == timeB[i]){
                 result = i;
-                return;
+                break;
             }
         }
         System.out.print(result);
