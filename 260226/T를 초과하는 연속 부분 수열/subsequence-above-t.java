@@ -12,14 +12,14 @@ public class Main {
         int count = 0;
         int max = 0;
         for (int i = 0; i < n; i++) {
-            if (arr[i] > t) {
-                if (i==0 || arr[i] > arr[i-1]) {
+            if (i==0 || arr[i] > arr[i-1]) {
+                if (arr[i] > t) {
                     count++;
                 } else {
-                    count = 1;
+                    count = 0;
                 }
             } else {
-                count = 0;
+                count = 1;
             }
             max = Math.max(max, count);
         } 
