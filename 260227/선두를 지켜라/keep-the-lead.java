@@ -8,8 +8,8 @@ public class Main {
         // 선두 기록
         char[] record = new char[1000001];
         // 시간별 위치기록
-        int[] posA = new int[100001];
-        int[] posB = new int[100001];     
+        int[] posA = new int[1000001];
+        int[] posB = new int[1000001];     
 
         int[][] A = new int[n][2];
         for (int i = 0; i < n; i++) {
