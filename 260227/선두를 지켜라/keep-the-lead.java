@@ -24,7 +24,7 @@ public class Main {
         //선두가 몇번이 바뀌는지 찾아 출력하는 프로그램을 작성해보세요.
         // Please write your code here.
         int timeA = 1;
-        for(int i = 0; i < A.length; i++) {
+        for(int i = 0; i < n; i++) {
             int v = A[i][0]; // 속도
             int t = A[i][1]; //시간
         
@@ -34,7 +34,7 @@ public class Main {
             }
         }
         int timeB = 1;
-        for(int i = 0; i < B.length; i++) {
+        for(int i = 0; i < m; i++) {
             int v = B[i][0]; // 속도
             int t = B[i][1]; //시간
         
@@ -45,12 +45,17 @@ public class Main {
         }
 
         // 선두 기록
-        for (int i = 1; i < 100001; i ++) {
+        int maxTime = Math.max(timeA,timeB);
+        //1초는 직접 판단
+        if (posA[1] > posB[1]) record[1] = 'A';
+        else if (posA[1] < posB[1]) record[1] = 'B';  
+        else record[1] = 'A';
+        for (int i = 2; i < maxTime; i ++) {
             if(posA[i] > posB[i]) {
                 record[i] = 'A';
             } else if (posA[i] < posB[i]) {
                 record[i] = 'B';
-            } else {
+            } else if (posA[i] == posB[i]){
                 record[i] = record[i-1]; // 공동선두면 유지
             }
         }
@@ -59,11 +64,14 @@ public class Main {
         // A → B 로 바뀔 때만 +1, B → A 로 바뀔 때만 +1체크
         int count = 0;
         // 0초는 값없음, 1초부터 비교를 위해서 2부터 시작
-        for (int i = 2; i < 100001; i++){
-            if(record [i] != record[i-1]) {
+    
+        for (int i = 2; i < maxTime; i++){
+           //System.out.println(record[i]);
+            if(record[i] != record[i-1]) {
                 count++;
             }
-        } 
+        }
+        //System.out.print("----"); 
         System.out.print(count);
     } 
 }
