@@ -24,15 +24,21 @@ public class Main {
         for (int i = 0; i < shakes.length; i++){
             int x = shakes[i][1];
             int y = shakes[i][2];
-            // x가 감염자이고 전염 가능하면
-            if (remain[x] > 0) {
-                if(remain[y] == 0) { //감염안된사람 감염시키기
+            boolean xCan = remain[x] > 0;
+            boolean yCan = remain[y] > 0;
+
+            // x가 감염자였다면
+            if (xCan) {
+                if (remain[y] == 0) {
                     remain[y] = K;
                     person[y] = 1;
-                }                
+                }
                 remain[x]--;
-            } else if (remain[y] > 0) {
-                if(remain[x] == 0) {
+            }
+
+            // y가 감염자였다면
+            if (yCan) {
+                if (remain[x] == 0) {
                     remain[x] = K;
                     person[x] = 1;
                 }
