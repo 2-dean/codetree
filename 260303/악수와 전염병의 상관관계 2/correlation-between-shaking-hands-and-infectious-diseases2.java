@@ -25,18 +25,20 @@ public class Main {
             int x = shakes[i][1];
             int y = shakes[i][2];
             // x가 감염자이고 전염 가능하면
-            if (remain[x] > 0 && remain[y] == 0) {
+            if (remain[x] > 0) {
+                if(remain[y] == 0) { //감염안된사람 감염시키기
+                    remain[y] = K;
+                    person[y] = 1;
+                }                
                 remain[x]--;
-                remain[y] = K;
-                person[y] = 1;
-            }
-            // y가 감염자이고 전염 가능하면
-            if (remain[y] > 0 && remain[x] == 0) {
+            } else if (remain[y] > 0) {
+                if(remain[x] == 0) {
+                    remain[x] = K;
+                    person[x] = 1;
+                }
                 remain[y]--;
-                remain[x] = K;
-                person[x] = 1;
             }
-            // 둘다 감염자인경우
+
             
         }
 
