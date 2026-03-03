@@ -31,11 +31,13 @@ public class Main {
                 person[y] = 1;
             }
             // y가 감염자이고 전염 가능하면
-            else if (remain[y] > 0 && remain[x] == 0) {
+            if (remain[y] > 0 && remain[x] == 0) {
                 remain[y]--;
                 remain[x] = K;
                 person[x] = 1;
             }
+            // 둘다 감염자인경우
+            
         }
 
         for (int i=1; i < person.length; i++) {
