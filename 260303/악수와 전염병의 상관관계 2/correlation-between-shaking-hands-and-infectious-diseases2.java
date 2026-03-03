@@ -7,8 +7,11 @@ public class Main {
         int P = sc.nextInt(); // 시작
         int T = sc.nextInt(); // T번 반복
         int[][] shakes = new int[T][3];
+
         int[] person = new int[N+1];
-        person[P] = K+1; // 횟수(?);
+        int[] remain = new int[N+1]; // 남은 전염 가능 횟수
+        remain[P] = K;
+        
         for (int i = 0; i < T; i++) {
             shakes[i][0] = sc.nextInt(); //t 초에
             shakes[i][1] = sc.nextInt(); //x 
@@ -21,16 +24,19 @@ public class Main {
         for (int i = 0; i < shakes.length; i++){
             int x = shakes[i][1];
             int y = shakes[i][2];
-            if (person[P] > 1){ //감염횟수 남아있는지 확인
-                if (x == P) { // 감염자인지확인
-                    person[x]--;
-                    person[y]++;
-                } else if (y == P) {
-                    person[y]--;
-                    person[x]++;
-                }
+            // x가 감염자이고 전염 가능하면
+            if (remain[x] > 0 && remain[y] == 0) {
+                remain[x]--;
+                remain[y] = K;
+                person[y] = 1;
             }
-        } 
+            // y가 감염자이고 전염 가능하면
+            else if (remain[y] > 0 && remain[x] == 0) {
+                remain[y]--;
+                remain[x] = K;
+                person[x] = 1;
+            }
+        }
 
         for (int i=1; i < person.length; i++) {
             System.out.print(person[i]);
