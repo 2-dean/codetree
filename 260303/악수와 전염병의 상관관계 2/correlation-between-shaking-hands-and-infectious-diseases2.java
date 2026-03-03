@@ -11,7 +11,7 @@ public class Main {
         int[] person = new int[N+1];
         int[] remain = new int[N+1]; // 남은 전염 가능 횟수
         remain[P] = K;
-        
+        person[P] = 1;
         for (int i = 0; i < T; i++) {
             shakes[i][0] = sc.nextInt(); //t 초에
             shakes[i][1] = sc.nextInt(); //x 
