@@ -25,7 +25,7 @@ public class Main {
         }
        
 
-        System.out.print(nx +  " " + ny);
+        System.out.print(x +  " " + y);
 
     }
 }
