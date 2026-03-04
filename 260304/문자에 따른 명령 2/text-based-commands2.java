@@ -8,9 +8,7 @@ public class Main {
         String s = sc.next();
         // Please write your code here.
         int dirNum = 3; // 북쪽
-        int nx = 0;        
-        int ny = 0;
-
+    
         int x = 0;
         int y = 0;
         for (int i = 0; i < s.length(); i++) {
@@ -21,8 +19,8 @@ public class Main {
             } else if (c =='R') { // 방향 전환
                 dirNum = (dirNum + 1) % 4;
             } else if (c == 'F') {// 해당 방향으로 -1 이동
-                nx = x + dx[dirNum];
-                ny = y + dy[dirNum];
+                x += dx[dirNum];
+                y += dy[dirNum];
             }
         }
        
