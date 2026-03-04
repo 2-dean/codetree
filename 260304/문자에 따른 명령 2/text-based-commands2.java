@@ -17,9 +17,9 @@ public class Main {
             char c = s.charAt(i);
 
             if (c =='L') {
-                dirNum = (dirNum + 4 - 1) % 4; // 
+                dirNum = (dirNum - 1 + 4) % 4; // 
             } else if (c =='R') { // 방향 전환
-                dirNum = (dirNum - 1) % 4;
+                dirNum = (dirNum + 1) % 4;
             } else if (c == 'F') {// 해당 방향으로 -1 이동
                 nx = x + dx[dirNum];
                 ny = y + dy[dirNum];
