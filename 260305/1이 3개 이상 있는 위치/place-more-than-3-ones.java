@@ -31,19 +31,18 @@ public class Main {
                 int y = j;
                 int cnt = 0;
 
+                // 4방향탐색
                 for (int dirNum = 0; dirNum <4; dirNum++ ) {
                     int nx = x + dx[dirNum];
                     int ny = y + dy[dirNum];
                     if (nx >=0 && nx < N && ny >=0 && ny < N) {
                         if (arr[nx][ny] == 1) {
                             cnt ++;
-                        }
-                         if (cnt == 3 ) {
-                         result++;
-                        cnt = 0;
-                    } 
-                    }   
-                   
+                        }      
+                    }     
+                }
+                if (cnt >= 3) {
+                    result++;
                 }
             }
     
