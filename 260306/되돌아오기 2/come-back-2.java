@@ -19,7 +19,7 @@ public class Main {
                 x += dx[dir];
                 y += dy[dir];
             } else if (s.charAt(i) == 'L') {
-                dir = (dir - 1) % 4;
+                dir = (dir - 1 + 4) % 4;
             } else  if (s.charAt(i) == 'R') {
                 dir = (dir + 1) % 4;
             }
