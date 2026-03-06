@@ -36,7 +36,7 @@ public class Main {
                 int ny = y + dy[dirNum];
                 time ++;
                 //처음자리
-                if (arr[nx][ny] == 1 ){
+                if (arr[nx][ny] != 0 ){
                     System.out.print(time);
                     return;
                 } 
