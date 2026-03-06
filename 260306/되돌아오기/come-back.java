@@ -9,8 +9,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(); // N번 움직임
 
-        int x = 500;
-        int y = 500;
+        int x = 0;
+        int y = 0;
 
         arr[x][y] = 1;
 
@@ -21,6 +21,7 @@ public class Main {
             char dir = sc.next().charAt(0);
             int dist = sc.nextInt();
 
+            // dir 방향
             if (dir == 'W') {
                 dirNum = 0;
             } else if (dir == 'S'){
@@ -30,24 +31,22 @@ public class Main {
             } else {
                 dirNum = 3; // E
             }
+
             // 이동
             for (int j = 0;  j< dist; j++) {
-                int nx = x + dx[dirNum];
-                int ny = y + dy[dirNum];
+                x += dx[dirNum];
+                y += dy[dirNum];
+                //시간 기록
                 time ++;
-                //처음자리
-                if (nx == 500 && ny == 500){
+                //처음자리 (0,0)
+                if (x == 0 && y == 0){
                     System.out.print(time);
                     return;
                 } 
-                arr[nx][ny] = time;
-
-                x = nx;
-                y = ny;
             }
 
         }
-            System.out.print(-1);
+        System.out.print(-1);
 
         // Please write your code here.
     }
