@@ -5,9 +5,10 @@ public class Main {
     static int r = 0;
     static int c = 0;
     static int dirNum;
-                    // 북 동 남 서
-    static int[] dx = {1, 0, -1, 0};   //r
-    static int[] dy = {0, 1, 0, -1};   //c
+                   
+                 // 북 동 남 서
+    static int[] dx = {-1, 0, 1, 0};
+    static int[] dy = {0, 1, 0, -1};
     public static void checkStart(int num) {
         if (1 <= num && num <= n) {           // 위
             r = 0;
@@ -31,7 +32,7 @@ public class Main {
         }
     }
 
-    public static intt changeDir(char d, int dirNum) {
+    public static int changeDir(char d, int dirNum) {
         if (d == 'r') { // -> \
             if (dirNum == 0) dirNum = 1;
             else if (dirNum == 3) dirNum = 2;
@@ -40,8 +41,8 @@ public class Main {
         } else { // -> /
             if (dirNum == 0) dirNum = 3;
             else if (dirNum == 1) dirNum = 2;
-            else if (dirNum == 2) dirNum = 3;
-            else dirNum = 0; //dirnum ==1 
+            else if (dirNum == 2) dirNum = 1;
+            else dirNum = 0; //dirnum ==3
         }
         return dirNum;
     }
@@ -61,25 +62,23 @@ public class Main {
         // 시작좌표 확인\
         checkStart(startNum); // r,c 셋팅
         
-        int count = 0;
+        int count = 1;
         while(true) {
+            count++;
+
             // 거울 방향 체크
             if (grid[r][c] == '\\') {
-                changeDir('r', dirNum);
+                dirNum = changeDir('r', dirNum);
             } else { // => /
-                changeDir('l', dirNum);
+                dirNum = changeDir('l', dirNum);
             }
             // 방향전환 + 이동
             int nx = r + dx[dirNum];
             int ny = c + dy[dirNum];
             // 범위체크
-            if (nx >= 0 && nx < n && ny >= 0 && ny < n) {
-                r += nx;
-                c += ny;
-                count++;
-            } else {
-                break;
-            }
+            if(nx < 0 || nx >= n || ny < 0 || ny >= n) break;
+            r = nx;
+            c = ny;
         }
         System.out.print(count);
     }
