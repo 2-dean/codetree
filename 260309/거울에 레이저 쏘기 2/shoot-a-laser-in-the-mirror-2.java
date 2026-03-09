@@ -1,86 +1,84 @@
 import java.util.Scanner;
 
 public class Main {
-    static int n;
-    static int r = 0;
-    static int c = 0;
-    static int dirNum;
-                   
-                 // 북 동 남 서
-    static int[] dx = {-1, 0, 1, 0};
-    static int[] dy = {0, 1, 0, -1};
-    public static void checkStart(int num) {
-        if (1 <= num && num <= n) {           // 위
-            r = -1;
-            c = num - 1;
-            dirNum = 2;
+    public static final int DIR_NUM = 4;
+    public static final int MAX_N = 1000;
+    
+    public static int n;
+    public static char[][] arr = new char[MAX_N][MAX_N];
+
+    public static int startNum;
+
+    public static int x = 0; // col
+    public static int y = 0; // row
+    public static int moveDir;
+                
+    // 시작위치와 방향 구하기
+    public static void initialize(int num) {
+        if (num <= n) { // 위
+            x = 0; y = num - 1; moveDir = 0;
         } 
-        else if (n < num && num <= 2 * n) {   // 오른쪽
-            r = num - n - 1;
-            c = n;
-            dirNum = 3;
+        else if ( num <= 2 * n) {   // 오른쪽
+            x = num - n - 1; y = n - 1; moveDir = 1;
         } 
-        else if (2 * n < num && num <= 3 * n) { // 아래
-            r = n;
-            c = n - 1 - (num - 2 * n - 1);
-            dirNum = 0;
+        else if (num <= 3 * n) { // 아래
+            x = num - 1 ; y = n - (num - 2 * n); moveDir = 2;
         } 
-        else {                                // 왼쪽
-            r = n - 1 - (num - 3 * n - 1);
-            c = -1;
-            dirNum = 1;
+        else {  // 왼쪽
+            x = n - (num - 3 * n); y = 0; moveDir = 3;
         }
     }
 
-    public static int changeDir(char d, int dirNum) {
-        if (d == 'r') { // -> \
-            if (dirNum == 0) dirNum = 3;
-            else if (dirNum == 1) dirNum = 2;
-            else if (dirNum == 2) dirNum = 1;
-            else dirNum = 0;
-        } else { // -> /
-            if (dirNum == 0) dirNum = 1;
-            else if (dirNum == 1) dirNum = 0;
-            else if (dirNum == 2) dirNum = 3;
-            else dirNum = 2;
+    public static boolean inRange(int x, int y) {
+        return 0 <= x && x < n && 0 <= y && y < n;
+    }
+
+    public static void move(int nextDir) {
+                    // 북 동 남 서
+        int[] dx = {1, 0, -1, 0};
+        int[] dy = {0, -1, 0, 1};
+
+        x += dx[nextDir];
+        y += dy[nextDir];
+        moveDir = nextDir;
+    }
+
+    public static int simulate() {
+        int moveNum = 0;
+        while (inRange(x, y)) {
+            // 0 <-> 1 , 2 <-> 3
+            if (arr[x][y] == '/') {
+                move(moveDir ^ 1);
+            } // 0 <-> 3 / 1 <-> 2
+            else {
+                move(3 - moveDir);
+            }
+            moveNum += 1;
         }
-        return dirNum;
+        return moveNum;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        // 입력
         n = sc.nextInt();
-        char[][] grid = new char[n][n];
         for (int i = 0; i < n; i++) {
             String s = sc.next();
             for (int j = 0; j < n; j++) {
-                grid[i][j] = s.charAt(j);
+                arr[i][j] = s.charAt(j);
             }
         }
-        int startNum = sc.nextInt();
+
+        startNum = sc.nextInt();
         // Please write your code here.
         
-        // 시작좌표 확인\
-        checkStart(startNum); // r,c 셋팅
+        // 시작 위치화 방향구하기
+        initialize(startNum); // r,c 셋팅
         
-        int count = 0;
-        while(true) {
-             // 방향전환 + 이동
-            int nx = r + dx[dirNum];
-            int ny = c + dy[dirNum];
-            // 범위체크
-            if(nx < 0 || nx >= n || ny < 0 || ny >= n) break;
-            
-            r = nx;
-            c = ny;
-            count++;
-            // 거울 방향 체크
-            if (grid[r][c] == '\\') {
-                dirNum = changeDir('r', dirNum);
-            } else { // => /
-                dirNum = changeDir('l', dirNum);
-            } 
-            
-        }
-        System.out.print(count);
+        // (x, y)에서 moveDir 방향으로 시작하여
+        // 시뮬레이션을 진행합니다.
+        int moveNum = simulate();
+
+        System.out.print(moveNum);
     }
 }
