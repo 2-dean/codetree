@@ -37,7 +37,7 @@ public class Main {
             if (dirNum == 0) dirNum = 3;
             else if (dirNum == 1) dirNum = 2;
             else if (dirNum == 2) dirNum = 1;
-            else dirNum = 0
+            else dirNum = 0;
         } else { // -> /
             if (dirNum == 0) dirNum = 1;
             else if (dirNum == 1) dirNum = 0;
