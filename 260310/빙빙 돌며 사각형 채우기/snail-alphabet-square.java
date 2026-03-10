@@ -31,7 +31,7 @@ public class Main {
         int cnt = 1;
         while (true){
             if (cnt == n * m) break;
-            if (c == 91) c = 65;
+        
 
             // 다음 x,y값
             int nx = cx + dx[dirNum];
@@ -46,8 +46,9 @@ public class Main {
             } else { // 방향전환
                 dirNum = (dirNum + 1) % 4;
             }
+            if (c == 91) c = 65;
             arr[cx][cy] = c;
-            
+          
         }
 
         for (int i = 0; i < n; i++) {
