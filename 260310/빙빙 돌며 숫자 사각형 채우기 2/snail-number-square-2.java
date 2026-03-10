@@ -29,13 +29,14 @@ public class Main {
             // 범위 벗어나면 방향전환
             if (!inRange(nx, ny) || arr[nx][ny] != 0) {
                 dirNum = (dirNum + 1) % 4;
-            } 
+                nx = x + dx[dirNum];
+                ny = y + dy[dirNum];
+            }
 
-            x = x + dx[dirNum];
-            y = y + dy[dirNum];
+            // 3. 확정된 위치로 이동 후 값 기록
+            x = nx;
+            y = ny;
             arr[x][y] = i;            
-            
-    
         }
 
         for (int i = 0; i < n ; i++) {
