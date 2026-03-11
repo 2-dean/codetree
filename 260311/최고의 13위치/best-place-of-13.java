@@ -17,9 +17,10 @@ public class Main {
         for (int i = 0; i < n; i++) {
             int sum = 0;
             for (int j = 0; j < n-2; j++) {
-                sum = grid[i][j] + grid[i][j+1] + grid[i][j+2];
+                sum = grid[i][j] + grid[i][j + 1] + grid[i][j + 2];
+                maxVal = Math.max(maxVal, sum);
             }
-            maxVal = Math.max(maxVal, sum);
+          
         }
 
         System.out.print(maxVal);
