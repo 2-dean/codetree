@@ -18,7 +18,7 @@ public class Main {
             for (int j = 0; j < n ; j++) {
             // 각 시작 방마다 다른 모든 방 j까지의 거리  * 인원수 합or문)
                 //i 부터 j까지 거리
-                int dist = (j - 1 + n) % n; 
+                int dist = (j - i + n) % n; 
                 currentSum += dist * arr[j];
             }
             minVal = Math.min(minVal, currentSum);
