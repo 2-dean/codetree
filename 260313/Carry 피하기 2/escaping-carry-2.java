@@ -25,7 +25,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(br.readLine());
         }
-        int max = MAX_VAL ;
+        int max = 0 ;
         // 입력 수는 모두다름, 3가지 수를 더했을때 10의 자릿수를 넘지 않는것
         for (int i = 0 ; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
