@@ -23,13 +23,15 @@ public class Main {
             arr[positions[i]] = candies[i];
         }
 
-        int maxVal = Integer.MIN_VALUE;     
-        // 중심점 부터~   
-        for (int i = k + 1; i <=  maxPos - k; i++) {
+        int maxVal = 0;     
+        // 중심점 i 를 0~ 부터 max 까지 다확인
+        for (int i = 0;i <= maxPos; i++) {
             int sum = 0;
 
-            // 중심점(i) 기준 왼쪽 끝 i-k , 오른쪽끝 ㅑ
-            for (int j = i - k; j <= i + k ; j++) {
+            // 중심점(i) 기준 왼쪽 끝 i-k , 오른쪽끝 
+            int start = Math.max(0, i - k);
+            int end = Math.min(maxPos, i + k);
+            for (int j = start; j <= end; j++) {
                 sum += arr[j];
             }
             maxVal = Math.max(maxVal, sum);
