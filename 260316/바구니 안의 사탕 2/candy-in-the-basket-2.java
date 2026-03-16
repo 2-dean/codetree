@@ -24,7 +24,7 @@ public class Main {
         }
 
         int maxVal = Integer.MIN_VALUE;        
-        for (int i = k + 1; i <=  maxPos + 1 - k; i++) {
+        for (int i = k + 1; i <=  maxPos - k; i++) {
             int sum = 0;
             for (int j = i - k; j <= k * 2 + 1; j++) {
                 sum += arr[j];
