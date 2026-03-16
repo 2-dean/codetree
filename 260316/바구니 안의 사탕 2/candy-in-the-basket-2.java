@@ -20,7 +20,7 @@ public class Main {
         
         // Please write your code here.
         for (int i = 0; i < n; i++){
-            arr[positions[i]] = candies[i];
+            arr[positions[i]] += candies[i];
         }
 
         int maxVal = 0;     
