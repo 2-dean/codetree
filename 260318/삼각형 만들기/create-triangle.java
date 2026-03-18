@@ -29,12 +29,12 @@ public class Main {
             for (int j = i + 1; j < n ; j++) {
                 for(int k = j + 1; k < n; k++) {
                     // x값이 같은 쌍이 있고, y값도 같은 쌍이 있는경우에만 최대넓이 계산 
-                    if ((x[i] == x[j] || x[i] == x[k] || x[j] == x[k]) ||
+                    if ((x[i] == x[j] || x[i] == x[k] || x[j] == x[k]) &&
                         (y[i] == y[j] || y[i] == y[k] || y[j] == y[k]) 
                     ) maxArea = Math.max(maxArea, area(i, j, k));
                 }
             }
         }
-        System.out.print(maxArea);
+        System.out.print(max);
     }
 }
