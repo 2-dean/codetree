@@ -45,6 +45,6 @@ public class Main {
             }
         }
         int ans = Math.abs(maxX - minX) * Math.abs(maxY - minY);
-        System.out.print(ans);
+        System.out.print((ans / 2 )* 2);
     }
 }
