@@ -16,23 +16,23 @@ public class Main {
             map[i][1] = Integer.parseInt(st.nextToken());
         }
         
-        int minDiffX = Integer.MAX_VALUE;
-        int minDiffY = Integer.MAX_VALUE;
+        int minDist = Integer.MAX_VALUE;
 
         for (int i = 0; i  < n; i++) {
             
             for (int j = i + 1; j < n ; j++) {
                 if (i == j) continue;
                 // x비교
-                int diffX = Math.abs(map[i][0] - map[j][0]);
-                int diffY = Math.abs(map[i][1] - map[j][1]);
+                int dx = Math.abs(map[i][0] - map[j][0]);
+                int dy = Math.abs(map[i][1] - map[j][1]);
 
-                minDiffX = Math.min(minDiffX, diffX);
-                minDiffY = Math.min(minDiffY, diffY);
+                int dist = dx * dx + dy * dy;
+
+                minDist = Math.min(minDist, dist);
             }
         }
 
-        System.out.print( minDiffX * minDiffX  + minDiffY * minDiffY );
+        System.out.print( minDist);
 
     }
 }
