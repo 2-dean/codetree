@@ -23,7 +23,7 @@ public class Main {
         int maxOpertTime = 0;
         for (int i = 0; i < n ; i++) {
             int sumOpertTime = 0;
-            int[] time = new int[10];
+            int[] time = new int[1001];
 
             for (int j = 0; j < n ; j++) {
                 // 한명만 제외
