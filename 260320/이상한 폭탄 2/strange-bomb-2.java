@@ -11,39 +11,19 @@ public class Main {
         }
         
         int result = -1 ;
-        int maxBombNum = 0;
-        boolean isbombed = false;
-        int bombNum = 0;
-        if (n == k) {
-            for (int i = 0; i < n; i++) {
-                for (int j = i + 1; j < n; j++) {
-                    if (bombs[i] == bombs[j]) {
-                        isbombed = true;
-                        bombNum = bombs[i];
-                        //System.out.println("bombNum : " + bombNum);
-                        break;
-                    } 
-                }
-                maxBombNum = Math.max(maxBombNum, bombNum);
+    
+        for (int i = 0 ; i < n - k; i++) {
+            for (int j = i + 1; j <= i + k; j++) {
+                // 배열 범위를 벗어나면 중단
+                if (j >= n) break;
 
-            }
-        } else {
-            for (int i = 0 ; i < n - k; i++) {
-                for (int j = i + 1; j <= i + k; j++) {
-                    if (bombs[i] == bombs[j]) {
-                        isbombed = true;
-                        bombNum = bombs[i]; 
-                        break;
-                    }
+                if (bombs[i] == bombs[j]) {
+                    result = Math.max(result, bombs[i]);
+                    break;
                 }
-                maxBombNum = Math.max(maxBombNum, bombNum);
             }
         }
-
-        if (isbombed) {
-            System.out.print(maxBombNum);
-        } else {
-            System.out.print(-1);
-        }
+    
+        System.out.print(result);
     }
 }
