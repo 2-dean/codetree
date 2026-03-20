@@ -12,7 +12,7 @@ public class Main {
         
         int result = -1 ;
     
-        for (int i = 0 ; i < n - k; i++) {
+        for (int i = 0 ; i < n; i++) {
             for (int j = i + 1; j <= i + k; j++) {
                 // 배열 범위를 벗어나면 중단
                 if (j >= n) break;
