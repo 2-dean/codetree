@@ -19,7 +19,7 @@ public class Main {
             for (int j = 0; j < n; j++) {
                 if (i == j) continue;
                 p[i] /= 2; // 할쿠
-                if (b > sum) {
+                if (b > sum && sum + p[i] + s[i] <= b) {
                     sum += p[i];
                     sum += s[i];
                     students++;
