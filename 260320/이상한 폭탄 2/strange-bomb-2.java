@@ -18,7 +18,7 @@ public class Main {
             for (int i = 0; i < n; i++) {
                 for (int j = i + 1; j < n; j++) {
                     if (bombs[i] == bombs[j]) {
-                        //isbombed = true;
+                        isbombed = true;
                         bombNum = bombs[i];
                         //System.out.println("bombNum : " + bombNum);
                         break;
@@ -31,7 +31,7 @@ public class Main {
             for (int i = 0 ; i < n - k; i++) {
                 for (int j = i + 1; j <= i + k; j++) {
                     if (bombs[i] == bombs[j]) {
-                        //isbombed = true;
+                        isbombed = true;
                         bombNum = bombs[i]; 
                         break;
                     }
@@ -40,7 +40,10 @@ public class Main {
             }
         }
 
-        result = maxBombNum;
-        System.out.print(maxBombNum);
+        if (isbombed) {
+            System.out.print(maxBombNum);
+        } else {
+            System.out.print(-1);
+        }
     }
 }
