@@ -10,11 +10,11 @@ public class Main {
             arr[i] = sc.nextInt();
         }
         //원소들의 합이 최대
-        int maxSum = Integer.MIN_VALUE;
+        long maxSum = Integer.MIN_VALUE;
         // 시작위치 1번 부터 해보기)
         for (int i = 1; i <= n; i ++) { // 인덱스
-            int sum = 0;
-            int now = i - 1;
+            long sum = 0;
+            int now = i;
             //m번 움직임    
             for (int j = 0; j < m; j++) {
                 int value = arr[now]; // 시작위치에 적힌 숫자
