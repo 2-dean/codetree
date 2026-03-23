@@ -9,7 +9,7 @@ public class Main {
             arr[i] = sc.nextInt();
         }
 
-        int minDiff = 100;
+        int minDiff = Integer.MAX_VALUE;
         // 두배할 숫자 고르기
         for (int i = 0; i < n; i++) {
             arr[i] *= 2;
