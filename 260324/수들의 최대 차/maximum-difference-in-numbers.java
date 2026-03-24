@@ -11,9 +11,9 @@ public class Main {
 
         int maxCnt = 0;
         for (int i = 0; i < n; i++) {
-            int count = 1;
+            int count = 0;
             // i + k 이내인거 찾기
-            for (int j = i + 1; j < n ; j++){
+            for (int j = 0; j < n ; j++){
                 if (arr[i] <= arr[j] && arr[j] <= arr[i] + k) {
                     //System.out.println("arr j = " + arr[j]);
                     count++;
