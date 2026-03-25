@@ -14,10 +14,13 @@ public class Main {
 
 
         for(int i = 0; i < n; i++) {
-            for (int j = i + 1; j < i + k; j++ ) {
+            for (int j = i + 1; j <= i + k; j++ ) {
                 if (j >= n) break; // 배열범위 내
 
-                if (bombs[i] == bombs[j]) nums[bombs[i]]++;
+                if (bombs[i] == bombs[j]) {
+                    nums[bombs[i]]++;
+                    break;
+                }
             }
         }
         
@@ -26,11 +29,13 @@ public class Main {
         for (int i = 1 ; i < nums.length; i++) {
             maxNum = Math.max(maxNum, nums[i]);
         }
+
+        int result = 0;
         for (int i = 1 ; i < nums.length; i++) {
             if (maxNum == nums[i]){
-                System.out.print(i);
-                break;
+                result = Math.max(result, nums[i]);
             }
         }
+        System.out.print(result);
     }
 }
