@@ -6,7 +6,7 @@ public class Main {
         int n = sc.nextInt();
         int k = sc.nextInt();
         int[] bombs = new int[n];
-        int[] nums = new int[n+1];
+        int[] nums = new int[101];
         for (int i = 0; i < n; i++)
             bombs[i] = sc.nextInt();
         // Please write your code here.
@@ -33,7 +33,7 @@ public class Main {
         int result = 0;
         for (int i = 1 ; i < nums.length; i++) {
             if (maxNum == nums[i]){
-                result = Math.max(result, nums[i]);
+                result = Math.max(result, i);
             }
         }
         System.out.print(result);
