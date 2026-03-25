@@ -6,7 +6,7 @@ public class Main {
         int n = sc.nextInt();
         int k = sc.nextInt();
         int[] bombs = new int[n];
-        int[] nums = new int[101];
+        int[] nums = new int[10000001];
         for (int i = 0; i < n; i++)
             bombs[i] = sc.nextInt();
         // Please write your code here.
@@ -24,13 +24,15 @@ public class Main {
             }
         }
         
-        int maxNum = -1;
-       
+        int maxCount = -1; // 가장 많이 터진횟수
+        int result = 0; // 그때의 폭탄번호
+
         for (int i = 1 ; i < nums.length; i++) {
             maxNum = Math.max(maxNum, nums[i]);
+
         }
 
-        int result = 0;
+
         for (int i = 1 ; i < nums.length; i++) {
             if (maxNum == nums[i]){
                 result = Math.max(result, i);
