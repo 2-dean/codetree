@@ -29,9 +29,12 @@ public class Main {
 
         for (int i = 1 ; i < nums.length; i++) {
             maxNum = Math.max(maxNum, nums[i]);
-
         }
-
+        // ★여기 추가! 만약 가장 많이 터진 횟수가 0이라면?
+        if (maxNum == 0) {
+            System.out.print(0);
+            return; // 그냥 끝내버리기! ㅋ
+        }
 
         for (int i = 1 ; i < nums.length; i++) {
             if (maxNum == nums[i]){
