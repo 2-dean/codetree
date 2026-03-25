@@ -24,7 +24,7 @@ public class Main {
             }
         }
         
-        int maxCount = -1; // 가장 많이 터진횟수
+        int maxNum = -1; // 가장 많이 터진횟수
         int result = 0; // 그때의 폭탄번호
 
         for (int i = 1 ; i < nums.length; i++) {
