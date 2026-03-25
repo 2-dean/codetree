@@ -4,17 +4,8 @@ public class Main {
     static char[] seat;
     static int n;
 
-    public static int getMaxDist() {
-        int minDist = n; // 초기값을 최대로
-        
-        for (int i = 0 ; i < n; i++) {
-            for (int j = i+1; j < n; j++) {
-                if (seat[i] == '1' && seat[j]== '1') {
-                    minDist = Math.min(minDist, j - i); 
-                }
-            }
-        }
-        return minDist;
+    public static int getMinDist() {
+        int max
     }
 
     public static void main(String[] args) {
@@ -25,27 +16,17 @@ public class Main {
         // Please write your code here.
 
         int ans = 0;
-
-        //첫전째사람 앉기
         for (int i = 0; i < n; i++) { //
-            // 두번째 사람 앉을 자리
-            for (int j = i + 1; j < n; j++) {
-                // 둘다 빈자리에 만 앉음
-                if (seat[i] == '0' && seat[j] == '0') {
-                  
-                    seat[i] = '1';
-                    seat[j] = '1';
+            if (seat[i] == '0') {
+                // 앉혀보기
+                seat[i] == '1';
 
-                    // 거리구함
-                    ans = Math.max(ans, getMaxDist());
-                    
-                    seat[i] = '0';
-                    seat[j] = '0';
-                }
+                ans = Math.max(ans, getMaxDist());
+                seat[i] == '0';
             }
 
         }
 
-        System.out.print(ans);
+        System.out.print();
     }
 }
