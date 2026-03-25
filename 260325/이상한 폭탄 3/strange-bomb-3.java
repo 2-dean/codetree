@@ -29,6 +29,7 @@ public class Main {
         for (int i = 1 ; i < nums.length; i++) {
             if (maxNum == nums[i]){
                 System.out.print(i);
+                break;
             }
         }
     }
