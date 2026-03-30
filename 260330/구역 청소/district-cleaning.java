@@ -14,7 +14,7 @@ public class Main {
         if (b < c || d < a) {
             System.out.print((b-a) + (d-c)); 
         } else {
-            Sytem.out.print(Math.max(b, d) - Math.min(a,c));
+            System.out.print(Math.max(b, d) - Math.min(a,c));
         }
     }                
 }
