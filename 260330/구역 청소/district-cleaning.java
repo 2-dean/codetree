@@ -16,7 +16,5 @@ public class Main {
         } else {
             Sytem.out.print(Math.max(b, d) - Math.min(a,c));
         }
-
-        System.out.print(sum);
     }                
 }
