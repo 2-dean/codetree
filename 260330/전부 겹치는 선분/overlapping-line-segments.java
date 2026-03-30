@@ -16,7 +16,8 @@ public class Main {
 
 
         for (int x : arr) {
-            if (x > 1) {
+            //System.out.println(x);
+            if (x >= n) {
                 System.out.print("Yes");
                 return;
             }
