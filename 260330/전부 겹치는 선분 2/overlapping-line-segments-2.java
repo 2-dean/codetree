@@ -14,9 +14,9 @@ public class Main {
         boolean overlap = false;
         for (int i = 0; i < n; i++) {
             int maxX = -1;
-            int minX = 1000000001;
+            int minX = 101;
             for (int j = 0; j < n ; j++) {
-                if (i == j) continue;
+                if (i == j) continue;// 건너뛰기 하나씩
                 else {
                     maxX = Math.max(maxX, x1[j]);
                     minX = Math.min(minX, x2[j]);
