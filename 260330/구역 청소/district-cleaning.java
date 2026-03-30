@@ -8,15 +8,13 @@ public class Main {
         int d = sc.nextInt();
         // Please write your code here.
         
-        int sum = Math.abs((b-a) + (d-c)); 
+    
         
-        //겹치는 부분 빼줌
-        if (!(b < c || d < a)) {
-            if (a < d) {
-                sum -= (d-a);
-            } else {
-                sum -= (d-a);
-            }
+        //겹치지 않는경우
+        if (b < c || d < a) {
+            System.out.print((b-a) + (d-c)); 
+        } else {
+            Sytem.out.print(Math.max(b, d) - Math.min(a,c));
         }
 
         System.out.print(sum);
