@@ -20,13 +20,12 @@ public class Main {
         // p번째 이후에 없는 사람~?
         for (int i = p - 1; i < M; i++) {
             for (int j = 0; j < N; j++) {
-
+                if (u[i] == 0) return;
                 if (c[i] == user[j]) {
                     user[j] = '0';
                 }
             }
         }
-
         for (int i = 0; i < N; i++) {
             if (user[i] != '0') {
                 System.out.print(user[i] + " ");
