@@ -8,11 +8,14 @@ public class Main {
         // Please write your code here.
 
         // 양 끝 사람을 가운데로 넣기
-        int count = 0;
-        if (Math.abs(c-b) >= 2) count++;
-        if (Math.abs(a-b) >= 2) count++;
+        if (a+1 == b && b+1 == c){
+            System.out.print(0);
+        } else if (b - a == 2|| c - b == 2) {
+            System.out.print(1);
+        } else{
+            System.out.print(2);
+        }
 
-        System.out.print(count);
 
     }
 }
