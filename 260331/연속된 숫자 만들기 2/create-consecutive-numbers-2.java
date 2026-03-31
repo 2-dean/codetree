@@ -2,10 +2,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int c = sc.nextInt();
-        // Please write your code here.
+        int[] arr = new int[3];
+        arr[0] = sc.nextInt();
+        arr[1] = sc.nextInt();
+        arr[2] = sc.nextInt();
+        
+        // 1. 일단 정렬해서 순서를 잡아야 계산이 편합니다.
+        Arrays.sort(arr);
+        int a = arr[0], b = arr[1], c = arr[2];
 
         // 양 끝 사람을 가운데로 넣기
         if (a+1 == b && b+1 == c){
