@@ -9,13 +9,13 @@ public class Main {
         int[] line = new int [c+1];
 
 
-        int move = 0;
+        int max = 0;
 
         int leftDiff = b-a-1;
         int rightDiff = c-b-1;
 
-        
-        System.out.print(leftDiff +rightDiff);
+        max = Math.max(leftDiff,RightDiff);
+        System.out.print(max);
 
     }
 }
