@@ -4,7 +4,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        char[] rank = new char[n];
+        char[] rank = new char[n + 1];
+        rank[0] = 'C';
         
         int pointA = 0;
         int pointB = 0;
@@ -19,17 +20,17 @@ public class Main {
             }
 
             if (pointA > pointB) {
-                rank[i] = 'A';
+                rank[i + 1] = 'A';
             } else if (pointB > pointA) {
-                rank[i] = 'B';
-            } else{
-                rank[i] = 'C'; 
+                rank[i + 1] = 'B';
+            } else {
+                rank[i + 1] = 'C'; 
             }
             //System.out.println("rank[" + i + "]" + rank[i]);
         }
         // Please write your code here.
-        int count = 1;
-        for (int i  = 1; i < n; i++) {
+        int count = 0;
+        for (int i  = 1; i < n + 1; i++) {
             if (rank[i-1] != rank[i]) count++;
         }
 
