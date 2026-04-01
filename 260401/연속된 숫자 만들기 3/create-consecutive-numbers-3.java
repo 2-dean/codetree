@@ -14,7 +14,7 @@ public class Main {
         int leftDiff = b-a-1;
         int rightDiff = c-b-1;
 
-        max = Math.max(leftDiff,RightDiff);
+        max = Math.max(leftDiff, rightDiff);
         System.out.print(max);
 
     }
