@@ -29,12 +29,11 @@ public class Main {
                 List<Integer> ones = new ArrayList<>();
                 for (int j = 0; j < n; j++) {
                     if (arr[j] == 1) ones.add(j);
-                    //System.out.print(arr[j] + " ");
                 }
                 //System.out.println();
 
                 for (int k = 0; k < ones.size() - 1; k++) {
-                    int dist = ones.get(k + 1) - ones.get(k); // 사이 칸수
+                    int dist = ones.get(k + 1) - ones.get(k); // 인덱스차
                     //System.out.println(dist);
                     minDist = Math.min(minDist, dist);
                 }
