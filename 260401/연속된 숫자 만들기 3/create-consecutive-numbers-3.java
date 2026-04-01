@@ -6,9 +6,6 @@ public class Main {
         int b = sc.nextInt();
         int c = sc.nextInt();
         // Please write your code here.
-        int[] line = new int [c+1];
-
-
         int max = 0;
 
         int leftDiff = b-a-1;
