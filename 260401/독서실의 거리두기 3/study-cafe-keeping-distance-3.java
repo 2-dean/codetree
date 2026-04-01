@@ -10,23 +10,40 @@ public class Main {
         int[] arr = new int[n];
         String s = br.readLine();
 
-        List<Integer> ones = new ArrayList<>();
+        
+   
+        //List<Integer> ones = new ArrayList<>(); 
         for (int i = 0; i < n; i++) {
             arr[i] = s.charAt(i) - '0'; 
-            if (arr[i] == 1) {
-                ones.add(i); // 1이 있는 위치를 싹 다 저장 ㅋ
+           
+        }
+
+        int totalMaxDist = 0;
+  
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == 0) { // 빈자리
+                arr[i] = 1; // 앉힘
+
+                // 현재 배치에서 가장 가까운 두사람 거리 
+                int minDist = n; 
+                List<Integer> ones = new ArrayList<>();
+                for (int j = 0; j < n; j++) {
+                    if (arr[j] == 1) ones.add(j);
+                    //System.out.print(arr[j] + " ");
+                }
+                //System.out.println();
+
+                for (int k = 0; k < ones.size() - 1; k++) {
+                    int dist = ones.get(k + 1) - ones.get(k); // 사이 칸수
+                    //System.out.println(dist);
+                    minDist = Math.min(minDist, dist);
+                }
+                totalMaxDist = Math.max(totalMaxDist, minDist);
+                arr[i] = 0;//원복
             }
         }
 
-        int maxDiff = 0;
-        for (int k = 0; k < ones.size() - 1; k++) {
-            int i = ones.get(k);// 현재 1
-            int j = ones.get(k+1); //다음 1
-            int diff = j - i - 1;
-            maxDiff = Math.max(maxDiff, diff);
-        }
-
-        System.out.print(maxDiff / 2 + 1);
+        System.out.println(totalMaxDist);
         
     }
 }
