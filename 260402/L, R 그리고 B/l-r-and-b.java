@@ -45,15 +45,14 @@ public class Main {
                 int nx = x + dx[dir];
                 int ny = y + dy[dir];
                 //System.out.println("nx = " + nx + ", ny = " + ny);
-                if (nx > 0 && nx < N && ny > 0 && ny <N) {
-                    if (arr[nx][ny] != 'R' && !visited[nx][ny] ) {
-                        if (arr[nx][ny] == 'B') return dist;
+                if (nx >= 0 && nx < N && ny >= 0 && ny <N && arr[nx][ny] != 'R' && !visited[nx][ny] ) {
+                    if (arr[nx][ny] == 'B') return dist;
 
-                        visited[nx][ny] = true;
-                        q.add(new int[]{nx, ny, dist+1});
-                    
-                    }
+                    visited[nx][ny] = true;
+                    q.add(new int[]{nx, ny, dist+1});
+                
                 }
+                
 
             }
             
