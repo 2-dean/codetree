@@ -5,10 +5,10 @@ public class Main {
         
         int n = sc.nextInt();
         int[] ranks = new int[n+1];
-        ranks[0] = 123;
+        ranks[0] = 7; // 처음엔 0,0,0으로 다 같으니까 1+2+4 = 7로 시작 ㅋ ㅡㅡ;        
         int a = 0; // 1
         int b = 0; // 2
-        int c = 0; // 3
+        int c = 0; // 4
         
         for (int i = 0; i < n; i++) {
             char ch = sc.next().charAt(0);
@@ -18,21 +18,16 @@ public class Main {
             if (ch == 'B') b += s;
             if (ch == 'C') c += s;
 
-            // 승자 판별?
-            // abc 같음 
-            if (a == b && a == c && b == c) ranks[i + 1] = 123;
-            // a가제일큼
-            else if (a > b && a > c) ranks[i+1] = 1;
-            // b가제일큼
-            else if (b > a && b > c) ranks[i+1] = 2;
-            // c가제일큼
-            else if (c > a && c > b) ranks[i+1] = 4;
-            // ab 같고제일큼
-            else if (a == b && b > c) ranks[i+1] = 12;
-            // ac 같고 제일큼
-            else if (a == c && a > b) ranks[i+1] = 13;
-            // bc 같고 제일큼
-            else if (b == c && b > a) ranks[i+1] = 23;
+            // 최댓값 찾기
+            int m = Math.max(a, Math.max(b, c));
+
+            // 상태 숫자 만들기
+            int status = 0;
+            if (a == m) status += 1;
+            if (b == m) status += 2;
+            if (c == m) status += 4;
+            
+            ranks[i + 1] = status;
         }
         int count = 0;
         for (int i = 1; i < n + 1; i++) {
