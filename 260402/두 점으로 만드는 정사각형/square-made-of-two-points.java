@@ -20,8 +20,9 @@ public class Main {
         int ry = Math.max(y2, b2);
 
         int w = rx - lx;
- 
+        int h = ry - ly;
 
-        System.out.print(w*w);
+        int max = Math.max(w, h);
+        System.out.print(max*max);
     }
 }
