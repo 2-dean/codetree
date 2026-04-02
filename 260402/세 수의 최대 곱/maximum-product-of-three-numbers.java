@@ -13,15 +13,14 @@ public class Main {
         }
 
         int max = Integer.MIN_VALUE;
+        Arrays.sort(arr);
+        // 가장 작은 음수 2 * 가장큰 양수 1 
+        int num1 = arr[0] * arr[1] * arr[n-1];
+        // 큰 양수 3개 곱
+        int num2 = arr[n-1] * arr[n-2] * arr[n-3];
 
-        for(int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                for (int  k = j + 1; k < n; k++) {
-                    int num = arr[i] * arr[j] * arr[k];
-                    max = Math.max(max, num);
-                }
-            }   
-        }
+        max = Math.max(num1, num2);
         System.out.print(max);
+
     }
 }
