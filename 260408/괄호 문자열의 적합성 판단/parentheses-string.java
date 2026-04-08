@@ -11,7 +11,7 @@ public class Main {
                 s.push('(');
             } else { // ) 나왔을때
                 if (s.isEmpty()) {
-                    return;
+                     System.out.print("No");
                 }
                 s.pop();
             }
