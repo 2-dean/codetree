@@ -9,15 +9,13 @@ public class Main {
     static int[] dx = {1, 0, -1, 0};
     static int[] dy = {0, 1, 0, -1};
 
-    static int findMaxSum (int x1, int y1, int x2, int y2) {
-        int sumOfNums = 0;
+    static boolean isPositiveRect (int x1, int y1, int x2, int y2) {
         for(int i = x1; i <= x2; i++) {
             for (int j = y1; j <= y2; j++) {
-                if (grid[i][j] < 0) return -1;
-                sumOfNums++;
+                if (grid[i][j] < 0) return false;
             }
         }
-        return sumOfNums;
+        return true;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -30,17 +28,21 @@ public class Main {
                 grid[i][j] = sc.nextInt();
         // Please write your code here.
 
-        int maxSum = Integer.MIN_VALUE;
+        int maxArea = -1;
         // 왼쪽상단 i, j에서 시작 
         for(int i = 0 ; i < n ; i++) {
             for (int j = 0; j < m; j++) {
-                for (int w = 1; w < n; w ++) {
-                    for (int h = 1; h < m; h++){
-                        maxSum = Math.max(maxSum, findMaxSum(i, j, w, h));
+
+                for (int k = i; k < n; k++) { //끝행
+                    for (int l = j; l < m; l++){ // 끝열
+                        if(isPositiveRect(i, j, k, l)) {
+                            int area = (k - i + 1) * (l - j + 1); // 면적
+                            maxArea = Math.max(maxArea, area);
+                        }
                     }
                 }
             }
         }
-        System.out.print(maxSum);
+        System.out.print(maxArea);
     }
 }
