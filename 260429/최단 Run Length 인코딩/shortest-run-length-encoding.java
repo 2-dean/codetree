@@ -41,14 +41,14 @@ public class Main {
 
         arr = A.toCharArray();
         int count = A.length()-1;
-        int minLength = A.length();
+        int minLength = Integer.MAX_VALUE;
 
-        while (count-- > 0) {
-            //shift
-            doShift();
-            // run-length Encoding
+        
+        for (int i = 0; i < A.length(); i++) {
+        // 1. run-length Encoding 
             int size = runLengthEncoding();
             minLength = Math.min(minLength, size);
+            doShift();
         }
 
         System.out.println(minLength);
